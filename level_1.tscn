@@ -16,9 +16,3 @@ stretch_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("2_hbghi")]
 position = Vector2(806, 496)
-
-[node name="Player2" parent="." instance=ExtResource("2_hbghi")]
-position = Vector2(637, 458)
-
-[node name="Player3" parent="." instance=ExtResource("2_hbghi")]
-position = Vector2(957, 432)

@@ -3,7 +3,7 @@ extends RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	printdoubled(50)
+	pass
 
-func printdoubled(input_number) -> void:
-	print(input_number * 2)
+func _physics_process(delta: float) -> void:
+	apply_force(Vector2(2500,0) * delta)
