@@ -1,19 +1,64 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg1c57sot3wuh"]
+[gd_scene load_steps=7 format=3 uid="uid://dg1c57sot3wuh"]
 
 [ext_resource type="Texture2D" uid="uid://bix68jg1lap8e" path="res://assets/purple.png" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://culnuh87qksu0" path="res://level.gd" id="1_hn12h"]
 [ext_resource type="PackedScene" uid="uid://264sehgeawem" path="res://player.tscn" id="2_hbghi"]
 [ext_resource type="PackedScene" uid="uid://w0mg5vxgn6py" path="res://maze.tscn" id="4_ihfcg"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ihfcg"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_rka8t"]
+font_size = 25
+font_color = Color(0.3182045, 0.6393745, 0.29719758, 1)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_hn12h")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Graphics" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Graphics"]
+layer = -10
+
+[node name="Background" type="TextureRect" parent="Graphics/CanvasLayer"]
 z_index = -100
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_3hls8")
 stretch_mode = 1
+
+[node name="StartLabel" type="Label" parent="Graphics/CanvasLayer"]
+z_index = -25
+offset_left = 507.0
+offset_top = 130.0
+offset_right = 624.0
+offset_bottom = 188.0
+text = "START"
+label_settings = SubResource("LabelSettings_ihfcg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndLabel" type="Label" parent="Graphics/CanvasLayer"]
+z_index = -25
+offset_left = 448.0
+offset_top = -180.0
+offset_right = 565.0
+offset_bottom = -122.0
+text = "END"
+label_settings = SubResource("LabelSettings_ihfcg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rules" type="Label" parent="Graphics/CanvasLayer"]
+z_index = -25
+offset_left = 120.0
+offset_top = 16.0
+offset_right = 538.0
+offset_bottom = 234.0
+text = "Rules of the game:
+move the player to the end
+stay within the area"
+label_settings = SubResource("LabelSettings_rka8t")
 
 [node name="Player" parent="." instance=ExtResource("2_hbghi")]
 position = Vector2(565, 188)
