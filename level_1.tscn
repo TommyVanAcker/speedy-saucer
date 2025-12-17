@@ -16,8 +16,10 @@ texture = ExtResource("1_3hls8")
 stretch_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("2_hbghi")]
-position = Vector2(806, 496)
+position = Vector2(565, 188)
 
 [node name="maze" parent="." instance=ExtResource("4_ihfcg")]
 z_index = -50
-position = Vector2(786, 584)
+position = Vector2(495, 352)
+
+[connection signal="body_exited" from="maze" to="." method="_on_maze_body_exited"]
